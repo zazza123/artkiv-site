@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Artkiv - Your Passion, Perfectly Organised! Archive collections. Track sales. Manage expenses. 100% offline. 100% yours.">
+  <meta name="robots" content="noindex">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Artkiv - Links">
+  <meta property="og:description"
+    content="Your Passion, Perfectly Organised! Archive collections. Track sales. Manage expenses. 100% offline.">
+  <meta property="og:image" content="../image/app.png">
+
+  <title>Artkiv - Links</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../image/app.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       Reset & Base
+       =========================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 48px 16px 40px;
+      background: linear-gradient(145deg, #FF6B35 0%, #FF8C00 40%, #FFA500 70%, #FFD93D 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decorative blobs */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      left: -150px;
+      background: rgba(255, 255, 255, 0.08);
+      filter: blur(60px);
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      bottom: -100px;
+      right: -100px;
+      background: rgba(255, 80, 0, 0.15);
+      filter: blur(60px);
+    }
+
+    /* ===========================
+       Card wrapper
+       =========================== */
+    .lt-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ===========================
+       Profile
+       =========================== */
+    .lt-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+
+    .lt-avatar-ring {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      padding: 3px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3);
+      margin-bottom: 16px;
+    }
+
+    .lt-avatar-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .lt-name {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      margin-bottom: 8px;
+    }
+
+    .lt-bio {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      line-height: 1.5;
+      max-width: 300px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===========================
+       Links
+       =========================== */
+    .lt-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Base button */
+    .lt-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      text-decoration: none;
+      color: #212121;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lt-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .lt-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon container */
+    .lt-btn-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #FF6B35 0%, #FFA500 100%);
+      color: #fff;
+    }
+
+    .lt-btn-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .lt-btn-icon .emoji {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* Text content */
+    .lt-btn-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lt-btn-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #757575;
+      margin-bottom: 1px;
+    }
+
+    .lt-btn-title {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #212121;
+    }
+
+    /* Chevron */
+    .lt-btn-arrow {
+      flex-shrink: 0;
+      color: #BDBDBD;
+      transition: color 120ms ease;
+    }
+
+    .lt-btn:hover .lt-btn-arrow {
+      color: #FF6B35;
+    }
+
+    .lt-btn-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ===========================
+       iPhone section (collapsible)
+       =========================== */
+    .lt-btn-toggle {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lt-btn-toggle .toggle-indicator {
+      flex-shrink: 0;
+      color: #BDBDBD;
+      transition: transform 200ms ease, color 120ms ease;
+    }
+
+    .lt-btn-toggle.open .toggle-indicator {
+      transform: rotate(90deg);
+      color: #FF6B35;
+    }
+
+    .lt-btn-toggle .toggle-indicator svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .lt-country-links {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: -4px;
+    }
+
+    .lt-country-links.open {
+      display: flex;
+    }
+
+    .lt-country-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px 12px 26px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #212121;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .lt-country-btn:hover {
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    }
+
+    .lt-country-btn .flag {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    /* Coming soon modifier */
+    .lt-btn--disabled {
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .lt-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #FF6B35;
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.25);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+
+    /* ===========================
+       Divider
+       =========================== */
+    .lt-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.25);
+      margin: 4px 0;
+    }
+
+    /* ===========================
+       Footer
+       =========================== */
+    .lt-footer {
+      margin-top: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lt-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: color 120ms ease;
+    }
+
+    .lt-footer a:hover {
+      color: #fff;
+    }
+
+    .lt-footer-logo {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="lt-wrapper">
+
+    <!-- Profile -->
+    <div class="lt-profile">
+      <div class="lt-avatar-ring">
+        <img src="../image/app.png" alt="Artkiv App Icon">
+      </div>
+      <h1 class="lt-name">Artkiv</h1>
+      <p class="lt-bio">Your Passion, Perfectly Organised!<br>The <b>first app for makers</b> that helps you manage your
+        inventory and sales!<br>100% offline. 100% yours.</p>
+    </div>
+
+    <!-- Links -->
+    <div class="lt-links">
+
+      <!-- iPhone Download (coming soon) -->
+      <div class="lt-btn lt-btn--disabled" aria-disabled="true">
+        <div class="lt-btn-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+          </svg>
+        </div>
+        <div class="lt-btn-body">
+          <span class="lt-btn-label">Download on the</span>
+          <span class="lt-btn-title">App Store</span>
+        </div>
+        <span class="lt-badge">Coming Soon</span>
+      </div>
+
+      <!-- Country links (hidden) -->
+      <div class="lt-country-links" id="ios-countries" role="list">
+        <a class="lt-country-btn" role="listitem"
+          href="https://apps.apple.com/gb/app/artkiv/id6756893830?utm_source=linktree&utm_medium=social&utm_campaign=launch"
+          target="_blank" rel="noopener noreferrer">
+          <span class="flag">🇬🇧</span>
+          United Kingdom
+        </a>
+        <a class="lt-country-btn" role="listitem"
+          href="https://apps.apple.com/ie/app/artkiv/id6756893830?utm_source=linktree&utm_medium=social&utm_campaign=launch"
+          target="_blank" rel="noopener noreferrer">
+          <span class="flag">🇮🇪</span>
+          Ireland
+        </a>
+        <a class="lt-country-btn" role="listitem"
+          href="https://apps.apple.com/it/app/artkiv/id6756893830?utm_source=linktree&utm_medium=social&utm_campaign=launch"
+          target="_blank" rel="noopener noreferrer">
+          <span class="flag">🇮🇹</span>
+          Italia
+        </a>
+      </div>
+
+      <!-- Google Play (coming soon) -->
+      <div class="lt-btn lt-btn--disabled" aria-disabled="true">
+        <div class="lt-btn-icon" style="background: linear-gradient(135deg, #34A853 0%, #4CAF50 100%);">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z" />
+          </svg>
+        </div>
+        <div class="lt-btn-body">
+          <span class="lt-btn-label">Get it on</span>
+          <span class="lt-btn-title">Google Play</span>
+        </div>
+        <span class="lt-badge">Coming Soon</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="lt-divider" role="separator"></div>
+
+      <!-- Website -->
+      <a class="lt-btn" href="https://artkiv.app/" target="_blank" rel="noopener noreferrer">
+        <div class="lt-btn-icon" style="background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        </div>
+        <div class="lt-btn-body">
+          <span class="lt-btn-label">Visit our</span>
+          <span class="lt-btn-title">Website</span>
+        </div>
+        <span class="lt-btn-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </span>
+      </a>
+
+      <!-- Instagram -->
+      <a class="lt-btn" href="https://instagram.com/artkiv.app" target="_blank" rel="noopener noreferrer">
+        <div class="lt-btn-icon" style="background: linear-gradient(135deg, #E1306C 0%, #833AB4 100%);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </div>
+        <div class="lt-btn-body">
+          <span class="lt-btn-label">Follow us on</span>
+          <span class="lt-btn-title">Instagram</span>
+        </div>
+        <span class="lt-btn-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </span>
+      </a>
+
+    </div>
+    <!-- / lt-links -->
+
+  </div>
+  <!-- / lt-wrapper -->
+
+  <!-- Footer -->
+  <footer class="lt-footer">
+    <a href="https://artkiv.app/">
+      <img src="../image/app.png" alt="Artkiv" class="lt-footer-logo">
+      artkiv.app
+    </a>
+  </footer>
+
+</body>
+
+</html>
